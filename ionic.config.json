@@ -1,0 +1,7 @@
+{
+  "name": "contactList",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
