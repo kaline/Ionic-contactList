@@ -3,8 +3,32 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  version: '0.0.1',
+  production: false,
+  firebaseConfig : {
+    dev : {
+      apiKey: 'AIzaSyA-GtIsK_u4DNXs9-rEXkg72pG65xkosJk',
+      authDomain: 'cepapp-a38f6.firebaseapp.com',
+      projectId: 'cepapp-a38f6',
+      storageBucket: 'cepapp-a38f6.appspot.com',
+      messagingSenderId: '126834635980',
+      appId: '1:126834635980:web:f1036ccd63df6413583e69',
+      measurementId: 'G-XYSJSG2YYS',
+      databaseURL: 'https://cepapp-a38f6-default-rtdb.firebaseio.com/'
+    },
+    prod : {
+      apiKey: 'AIzaSyA-GtIsK_u4DNXs9-rEXkg72pG65xkosJk',
+      authDomain: 'cepapp-a38f6.firebaseapp.com',
+      projectId: 'cepapp-a38f6',
+      storageBucket: 'cepapp-a38f6.appspot.com',
+      messagingSenderId: '126834635980',
+      appId: '1:126834635980:web:f1036ccd63df6413583e69',
+      measurementId: 'G-XYSJSG2YYS',
+      databaseURL: 'https://cepapp-a38f6-default-rtdb.firebaseio.com/'
+    }
+  }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

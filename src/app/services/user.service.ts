@@ -51,4 +51,19 @@ export class UserService {
   listAddresses(){
     return this.angularFUser.list('/address').valueChanges();
   }
+
+  showAddressSearch(){
+    return this.angularFAddress.list('/address').valueChanges();
+  }
+  showAddress(address){
+    this.angularFAddress.list('/address').push(address).then(data => {
+      console.log(data);
+    }).catch(error => {
+      console.log(error);
+    });
+  }
+   removeAddress(address){
+     //this.angularFAddress.object('/address').update(address);
+   }
+
 }

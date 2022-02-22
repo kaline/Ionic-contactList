@@ -13,12 +13,19 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class HomePage implements OnInit {
   cep='';
+  addresses = [];
   private history: string[] = [];
-  constructor(public cepProvider: CepService, public userAddress: UserService, public location: Location, private router: Router) {
+  constructor(public cepProvider: CepService, public userAddress: UserService,
+     public location: Location, private router: Router, public userService: UserService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.history.push(event.urlAfterRedirects);
       }
+    });
+
+    this.userService.showAddressSearch().subscribe(address => {
+      console.log(address);
+      this.addresses = address;
     });
    }
 
@@ -30,7 +37,23 @@ export class HomePage implements OnInit {
     console.log(this.cep);
     return this.cepProvider.searchAddressforCEP(this.cep).subscribe((address) => {
       console.log(address);
+       return this.userAddress.showAddress(address);
+
+    });
+  }
+  saveCEP(){
+    console.log(this.cep);
+    return this.cepProvider.searchAddressforCEP(this.cep).subscribe((address) => {
+      console.log(address);
        return this.userAddress.saveAddress(address);
+
+    });
+  }
+  removeCEP(){
+    console.log(this.cep);
+    return this.cepProvider.searchAddressforCEP(this.cep).subscribe((address) => {
+      console.log(address);
+       return this.userAddress.removeAddress(address);
 
     });
   }
