@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then( m => m.ListPageModule)
+  },
+  {
+    path: 'list-address',
+    loadChildren: () => import('./list-address/list-address.module').then( m => m.ListAddressPageModule)
   }
 ];
 

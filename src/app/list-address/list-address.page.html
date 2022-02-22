@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>lista de usuários</ion-title>
+    <ion-title>lista de endereços</ion-title>
     <ion-buttons slot="start">
       <ion-buttons slot="start">
         <ion-back-button defaultHref="" (click)="myBackButton()"></ion-back-button>
@@ -12,9 +12,10 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of users">
-      <ion-label>{{item.name}}</ion-label>
-      <ion-label>{{item.email}}</ion-label>
+    <ion-item *ngFor="let item of addresses">
+      <ion-label>{{item.localidade}}</ion-label>
+      <ion-label>{{item.bairro}}</ion-label>
+      <ion-label>{{item.cep}}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -42,4 +42,13 @@ export class UserService {
   recoverPasswordUser(email){
     this.angularAuth.auth.sendPasswordResetEmail(email);
   }
+
+  listUsers(){
+    return this.angularFUser.list('/users').valueChanges();
+  }
+
+
+  listAddresses(){
+    return this.angularFUser.list('/address').valueChanges();
+  }
 }

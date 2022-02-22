@@ -8,8 +8,10 @@ import { NavController } from '@ionic/angular';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Home', url: '/home', icon: 'mail' },
-    { title: 'List', url: '/list', icon: 'paper-plane' },
+    { title: 'Home', url: '/home', icon: 'home' },
+    { title: 'Usuários', url: '/list', icon: 'person' },
+    { title: 'Endereços', url: '/list-address', icon: 'location' },
+
   ];
   public labels = ['Work'];
   constructor(public storage: Storage, public navCtrl: NavController) {
