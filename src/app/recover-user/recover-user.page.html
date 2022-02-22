@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>recover-user</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="myBackButton()"></ion-back-button>
+  </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +13,7 @@
     <ion-input  placeholder="Enter email" [(ngModel)]="email"></ion-input>
   </ion-item>
   
-  <ion-button  expand="block" color="primary" [(ngModel)]=""  (click)="recoverPassword()">Recuperar senha
+  <ion-button  expand="block" color="primary" (click)="recoverPassword()">Recuperar senha
   </ion-button>
 
 </ion-content>

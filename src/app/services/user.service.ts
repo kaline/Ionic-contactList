@@ -39,4 +39,7 @@ export class UserService {
    });
 
   }
+  recoverPasswordUser(email){
+    this.angularAuth.auth.sendPasswordResetEmail(email);
+  }
 }
