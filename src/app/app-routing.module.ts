@@ -38,6 +38,30 @@ const routes: Routes = [
   {
     path: 'list-address',
     loadChildren: () => import('./list-address/list-address.module').then( m => m.ListAddressPageModule)
+  },
+  {
+    path: 'list-teacher',
+    loadChildren: () => import('./list-teacher/list-teacher.module').then( m => m.ListTeacherPageModule)
+  },
+  {
+    path: 'form-teacher',
+    loadChildren: () => import('./form-teacher/form-teacher.module').then( m => m.FormTeacherPageModule)
+  },
+  {
+    path: 'list-course',
+    loadChildren: () => import('./list-course/list-course.module').then( m => m.ListCoursePageModule)
+  },
+  {
+    path: 'form-course',
+    loadChildren: () => import('./form-course/form-course.module').then( m => m.FormCoursePageModule)
+  },
+  {
+    path: 'form-student',
+    loadChildren: () => import('./form-student/form-student.module').then( m => m.FormStudentPageModule)
+  },
+  {
+    path: 'list-student',
+    loadChildren: () => import('./list-student/list-student.module').then( m => m.ListStudentPageModule)
   }
 ];
 
