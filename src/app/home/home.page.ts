@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CepService } from '../services/cep.service';
 import { UserService } from '../services/user.service';
+import { Location } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home',
@@ -9,7 +13,14 @@ import { UserService } from '../services/user.service';
 })
 export class HomePage implements OnInit {
   cep='';
-  constructor(public cepProvider: CepService, public userAddress: UserService) { }
+  private history: string[] = [];
+  constructor(public cepProvider: CepService, public userAddress: UserService, public location: Location, private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.history.push(event.urlAfterRedirects);
+      }
+    });
+   }
 
   ngOnInit() {
 
@@ -22,6 +33,15 @@ export class HomePage implements OnInit {
        return this.userAddress.saveAddress(address);
 
     });
+  }
+
+  myBackButton(){
+    this.history.pop();
+    if (this.history.length > 1) {
+      this.location.back();
+    } else {
+      this.router.navigateByUrl('/');
+    }
   }
 
 }
