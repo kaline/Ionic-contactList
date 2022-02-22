@@ -1,4 +1,4 @@
-# Ionic-contactList
+# Ionic-contactListMaps
 
 ### Executar projeto
 
