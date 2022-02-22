@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
+import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -10,5 +12,22 @@ export class AppComponent {
     { title: 'List', url: '/list', icon: 'paper-plane' },
   ];
   public labels = ['Work'];
-  constructor() {}
+  constructor(public storage: Storage, public navCtrl: NavController) {
+    this.initializeApp();
+  }
+  initializeApp() {
+    this.storage.create();
+    this.storage.get('user').then(user => {
+      console.log('APP -- '+ user);
+
+      if(user && user.length > 0) {
+        this.navCtrl.navigateForward('/home');
+
+      }else{
+        this.navCtrl.navigateForward('/login');
+      }
+    });
+  }
+
+
 }

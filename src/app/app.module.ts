@@ -11,7 +11,7 @@ import { AngularFireModule }  from 'angularfire2';
 import { AngularFirestoreModule }  from 'angularfire2/firestore';
 import { AngularFireDatabaseModule }  from 'angularfire2/database';
 import { AngularFireAuthModule }  from 'angularfire2/auth';
-
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 
 const firebaseConfig = {
@@ -36,9 +36,11 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    IonicStorageModule.forRoot()
+
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy,  useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

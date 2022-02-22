@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, NavController, AlertController } from '@ionic/angular';
 import { UserService } from '../services/user.service';
+import { HomePage } from '../home/home.page';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginPage implements OnInit {
   password = '';
 
   constructor(public navCtrl: NavController, public userService: UserService,
-    public loadingController: LoadingController, public alertController: AlertController) { }
+    public loadingController: LoadingController, public alertController: AlertController, public storage: Storage) { }
 
   ngOnInit() {
   }
@@ -24,6 +26,13 @@ export class LoginPage implements OnInit {
     this.userService.login(this.email, this.password).then(user => {
       console.log('user', user);
       this.loadingController.dismiss();
+     this.storage.create();
+      this.storage.set('user' , user.user.uid).then(data => {
+        this.navCtrl.navigateRoot('/home');
+
+      });
+
+
     }).catch(error => {
       console.log(error);
       this.errorAlert();
