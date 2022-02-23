@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../services/student.service';
+import { Student } from '../../models/student';
 
 @Component({
   selector: 'app-form-student',
@@ -8,13 +9,8 @@ import { StudentService } from '../services/student.service';
 })
 export class FormStudentPage implements OnInit {
 
-  student = {
-    name:'',
-    email:'',
-    registerNumber: '',
-    number: '',
-    city: '',
-  };
+  student = new Student();
+
   constructor(public studentService: StudentService) { }
 
   ngOnInit() {
