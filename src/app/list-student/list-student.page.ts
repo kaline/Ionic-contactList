@@ -27,7 +27,7 @@ export class ListStudentPage implements OnInit {
   }
 
   openForm(){
-    this.navCtrl.navigateForward('/form-student');
+    this.navCtrl.navigateBack('/form-student');
   }
 
 }

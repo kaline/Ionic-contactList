@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ export class StudentService {
   constructor(public angularFireDatabase: AngularFireDatabase) { }
 
   listStudents(){
-    return this.angularFireDatabase.list('/students').valueChanges();
+    return this.angularFireDatabase.list('/students').snapshotChanges()
+    .pipe(map(item => item.map(changes =>({key: changes.payload.key, value: changes.payload.val()}))));
 
   }
   insertStudent(student){
