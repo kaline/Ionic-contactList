@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { StudentService } from '../services/student.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-list-student',
@@ -10,7 +11,7 @@ import { StudentService } from '../services/student.service';
 export class ListStudentPage implements OnInit {
   students = [];
 
-  constructor(public location:  Location, public studentService: StudentService) {
+  constructor(public location:  Location, public studentService: StudentService, public navCtrl: NavController) {
     this.studentService.listStudents().subscribe(studentsData => {
       console.log(studentsData);
       this.students = studentsData;
@@ -23,6 +24,10 @@ export class ListStudentPage implements OnInit {
 
   myBackButton(){
     this.location.back();
+  }
+
+  openForm(){
+    this.navCtrl.navigateForward('/form-student');
   }
 
 }

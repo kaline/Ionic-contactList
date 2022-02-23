@@ -13,6 +13,9 @@ export class AppComponent {
     { title: 'Professores', url: '/list-teacher', icon: 'person' },
     { title: 'Cursos', url: '/list-course', icon: 'book' },
     { title: 'Endereços', url: '/list-address', icon: 'location' },
+    { title: 'Formulário professor', url: '/list-teacher', icon: 'person' },
+    { title: 'Formulário estudante', url: '/list-student', icon: 'person' },
+    { title: 'Formulário curso', url: '/list-course', icon: 'book' },
     { title: 'Sair', url: '/login', icon: 'log-out' },
   ];
   public labels = ['Work'];

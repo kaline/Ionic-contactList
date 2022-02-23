@@ -17,4 +17,9 @@
       <ion-label>{{item.email}}</ion-label>
     </ion-item>
   </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add" (click)="openForm()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
