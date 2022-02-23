@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>list-student</ion-title>
+    <ion-title>lista de estudantes</ion-title>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="" (click)="myBackButton()"></ion-back-button>
+    </ion-buttons>
+   </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor="let item of users">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-label>{{item.email}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

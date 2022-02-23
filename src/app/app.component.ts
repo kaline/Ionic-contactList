@@ -9,9 +9,11 @@ import { NavController } from '@ionic/angular';
 export class AppComponent {
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
-    { title: 'Usuários', url: '/list', icon: 'person' },
+    { title: 'Estudantes', url: '/list-student', icon: 'person' },
+    { title: 'Professores', url: '/list-teacher', icon: 'person' },
+    { title: 'Cursos', url: '/list-course', icon: 'book' },
     { title: 'Endereços', url: '/list-address', icon: 'location' },
-
+    { title: 'Sair', url: '/login', icon: 'log-out' },
   ];
   public labels = ['Work'];
   constructor(public storage: Storage, public navCtrl: NavController) {
