@@ -12,7 +12,8 @@ export class StudentService {
     return this.angularFireDatabase.list('/students').valueChanges();
 
   }
-  insertStudent(){
+  insertStudent(student){
+    return this.angularFireDatabase.list('/students').push(student);
 
   }
   updateStudent() {

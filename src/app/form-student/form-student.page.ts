@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from '../services/student.service';
 
 @Component({
   selector: 'app-form-student',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormStudentPage implements OnInit {
 
-  constructor() { }
+  student = {
+    name:'',
+    email:'',
+    registerNumber: '',
+    number: '',
+    city: '',
+  };
+  constructor(public studentService: StudentService) { }
 
   ngOnInit() {
+  }
+  saveStudent(){
+    console.log(this.student);
+    this.studentService.insertStudent(this.student);
   }
 
 }

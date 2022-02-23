@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>form-student</ion-title>
+    <ion-title>Formulário de alunos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input  placeholder="Insira nome" [(ngModel)]="student.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input  placeholder="Insira email" [(ngModel)]="student.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Matrícula</ion-label>
+    <ion-input  placeholder="Insira matrícula" [(ngModel)]="student.registerNumber"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Telefone</ion-label>
+    <ion-input  placeholder="Insira telefone" [(ngModel)]="student.number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Cidade</ion-label>
+    <ion-input  placeholder="Insira cidade" [(ngModel)]="student.city"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="saveStudent()">Salvar</ion-button>
 
 </ion-content>
