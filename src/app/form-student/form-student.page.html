@@ -26,5 +26,7 @@
     <ion-input  placeholder="Insira cidade" [(ngModel)]="student.city"></ion-input>
   </ion-item>
   <ion-button expand="block" (click)="saveStudent()">Salvar</ion-button>
+  <ion-button expand="block" (click)="removeStudent()" *ngIF="studentID !== undefined">Excluir</ion-button>
+
 
 </ion-content>

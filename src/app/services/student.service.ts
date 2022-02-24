@@ -24,6 +24,8 @@ export class StudentService {
 
 
   }
-  removeStudent(){}
+  removeStudent(id){
+    return this.angularFireDatabase.object('/students/' + id).remove();
+  }
 
 }

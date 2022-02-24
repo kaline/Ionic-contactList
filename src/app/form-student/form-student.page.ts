@@ -53,6 +53,10 @@ export class FormStudentPage implements OnInit {
       });
     }
   }
+
+  removeStudent(){
+    this.studentService.removeStudent(this.studentID);
+  }
   async registerStudentToast() {
     const toast = await this.toastController.create({
       message: 'Estudante cadastrado',
