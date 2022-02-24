@@ -22,12 +22,25 @@ export class ListStudentPage implements OnInit {
   ngOnInit() {
   }
 
-  myBackButton(){
-    this.location.back();
-  }
-
   openForm(){
     this.navCtrl.navigateBack('/form-student');
+  }
+  editStudent(item){
+    const studentID = item.key;
+    const student = item.value;
+
+    const obj = {
+     itemID: studentID,
+     item1: student,
+    };
+    this.navCtrl.navigateForward('/form-student', obj.itemID);
+
+
+
+  }
+
+  myBackButton(){
+    this.location.back();
   }
 
 }

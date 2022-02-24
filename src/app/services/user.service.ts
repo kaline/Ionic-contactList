@@ -56,14 +56,14 @@ export class UserService {
     return this.angularFAddress.list('/address').valueChanges();
   }
   showAddress(address){
-    this.angularFAddress.list('/address').push(address).then(data => {
+    this.angularFAddress.object('/address' + address.id).update(address).then(data => {
       console.log(data);
     }).catch(error => {
       console.log(error);
     });
   }
    removeAddress(address){
-     //this.angularFAddress.object('/address').update(address);
+     //this.angularFAddress.object('/address' + address.id).update(address);
    }
 
 }
