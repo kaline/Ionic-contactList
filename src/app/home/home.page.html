@@ -14,26 +14,11 @@
 
 <ion-content [fullscreen]="true">
   
+<ion-grid class="map-grid">
+  <div id="map">
 
-  <ion-item>
-    <ion-label position="stacked">CEP</ion-label>
-    <ion-input [(ngModel)]="cep"></ion-input>
-  </ion-item>
-
-  <ion-button (click)="searchCEP()">Buscar CEP</ion-button>
-  <ion-button (click)="saveCEP()">Salvar CEP</ion-button>
-  <ion-button (click)="removeCEP()">Remove CEP</ion-button>
-
-
-  <ion-list *ngFor="let item of addresses">
-    <ion-label>{{item.localidade}} - </ion-label>
-    <ion-label>{{item.bairro}} - </ion-label>
-    <ion-label>{{item.cep}}</ion-label>
-
-
-  </ion-list>
-
-
+  </div>
+</ion-grid>
 
 </ion-content>
 

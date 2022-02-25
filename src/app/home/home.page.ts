@@ -1,70 +1,45 @@
-import { Component, OnInit } from '@angular/core';
-import { CepService } from '../services/cep.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Location } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router';
 
-
-
+declare let google: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  cep='';
-  addresses = [];
-  private history: string[] = [];
-  constructor(public cepProvider: CepService, public userAddress: UserService,
-     public location: Location, private router: Router, public userService: UserService) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.history.push(event.urlAfterRedirects);
-      }
-    });
 
-    this.userService.showAddressSearch().subscribe(address => {
-      console.log(address);
-      this.addresses = address;
-    });
-   }
+  @ViewChild('map') mapElement: ElementRef;
+  map;
+
+  constructor(
+     public location: Location, public userService: UserService) { }
 
   ngOnInit() {
+    this.initMap();
 
   }
 
-  searchCEP(){
-    console.log(this.cep);
-    return this.cepProvider.searchAddressforCEP(this.cep).subscribe((address) => {
-      console.log(address);
-       return this.userAddress.showAddress(address);
-
-    });
+  initMap() {
+    console.log(this.mapElement);
+      this.map = this.createMap(this.mapElement);
   }
-  saveCEP(){
-    console.log(this.cep);
-    return this.cepProvider.searchAddressforCEP(this.cep).subscribe((address) => {
-      console.log(address);
-       return this.userAddress.saveAddress(address);
 
-    });
+  createMap(mapElement){
+    if(mapElement !== null && mapElement.nativeElement !== null && google) {
+      const options = {
+        zoom: 7,
+        center: {lat: -5.081357184675141, lng: -39.70482921223503}
+      };
+      return new google.maps.Map(mapElement.nativeElement, options);
+    }
+    return undefined;
   }
-  removeCEP(){
-    console.log(this.cep);
-    return this.cepProvider.searchAddressforCEP(this.cep).subscribe((address) => {
-      console.log(address);
-       return this.userAddress.removeAddress(address);
 
-    });
-  }
 
   myBackButton(){
-    this.history.pop();
-    if (this.history.length > 1) {
       this.location.back();
-    } else {
-      this.router.navigateByUrl('/');
-    }
   }
 
 }

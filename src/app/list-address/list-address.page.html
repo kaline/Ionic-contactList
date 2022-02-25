@@ -11,6 +11,14 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label position="stacked">CEP</ion-label>
+    <ion-input [(ngModel)]="cep"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="searchCEP()">Buscar CEP</ion-button>
+  <ion-button (click)="saveCEP()">Salvar CEP</ion-button>
+  <ion-button (click)="removeCEP()">Remove CEP</ion-button>
   <ion-list>
     <ion-item *ngFor="let item of addresses">
       <ion-label>{{item.localidade}}</ion-label>
